@@ -1,0 +1,34 @@
+//Para clonar el repositorio de github:
+git clone ruta_repositorio
+
+//Para saber cuál es el estado del repositorio:
+git status
+
+//Para rastrear archivos
+git add nombre_archivo
+
+//Para rastrear todos los archivos
+git add -A 
+
+//Para guardar los cambios
+git commit -m "mensaje descriptivo de los cambios"
+
+//Para mandar los cambios a github
+git push
+
+//En resumen, cada que hagamos un cambio importante:
+git add -A 
+git commit -m "descripción del cambio"
+git push
+
+
+//-----------------R A M A S----------------------
+
+//Para cambiar de rama:
+git checkout nombre_rama
+
+//Para listar las ramas:
+git branch
+
+//Para crear una nueva rama:
+git checkout -b nombre_nueva_rama
