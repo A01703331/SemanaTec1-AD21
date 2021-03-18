@@ -48,6 +48,7 @@ tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ]
 
+
 def square(x, y):
     "Draw square using path at (x, y)."
     path.up()
@@ -61,12 +62,14 @@ def square(x, y):
 
     path.end_fill()
 
+
 def offset(point):
     "Return offset of point in tiles."
     x = (floor(point.x, 20) + 200) / 20
     y = (180 - floor(point.y, 20)) / 20
     index = int(x + y * 20)
     return index
+
 
 def valid(point):
     "Return True if point is valid in tiles."
@@ -81,6 +84,7 @@ def valid(point):
         return False
 
     return point.x % 20 == 0 or point.y % 20 == 0
+
 
 def world():
     "Draw world using path."
@@ -99,6 +103,7 @@ def world():
                 path.up()
                 path.goto(x + 10, y + 10)
                 path.dot(2, 'white')
+
 
 def move():
     "Move pacman and all ghosts."
@@ -125,7 +130,19 @@ def move():
 
     for point, course in ghosts:
         if valid(point + course):
-            point.move(course)
+            if (state['score'] > 10 and state['score'] < 20):
+                point.move(course*1.1)
+            elif (state['score'] >= 20 and state['score'] < 30):
+                point.move(course*1.2)
+            elif (state['score'] >= 30 and state['score'] < 40):
+                point.move(course*1.3)
+            elif (state['score'] >= 40 and state['score'] < 50):
+                point.move(course*1.4)
+            elif (state['score'] >= 50 and state['score'] < 60):
+                point.move(course*1.5)
+            else:
+                point.move(course)
+
         else:
             options = [
                 vector(5, 0),
@@ -147,13 +164,19 @@ def move():
         if abs(pacman - point) < 20:
             return
 
+<<<<<<< HEAD
     ontimer(move, 10)
+=======
+    ontimer(move, 40)
+
+>>>>>>> develop
 
 def change(x, y):
     "Change pacman aim if valid."
     if valid(pacman + vector(x, y)):
         aim.x = x
         aim.y = y
+
 
 setup(420, 420, 370, 0)
 hideturtle()
