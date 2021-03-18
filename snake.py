@@ -11,12 +11,43 @@ Exercises
 
 from turtle import update, clear, ontimer, setup, hideturtle, \
     tracer, listen, onkey, done
-from random import randrange
+from random import randrange, randint
 from freegames import square, vector
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+
+
+def color_change_snake():
+    colorrandom = (randint(1, 5))
+    if colorrandom == 1:
+        colorrandom2 = 'yellow'
+    elif colorrandom == 2:
+        colorrandom2 = 'black'
+    elif colorrandom == 3:
+        colorrandom2 = 'blue'
+    elif colorrandom == 4:
+        colorrandom2 = 'pink'
+    else:
+        colorrandom2 = 'orange'
+    return colorrandom2
+
+
+def color_change_food():
+
+    colorrandom = (randint(1, 5))
+    if colorrandom == 1:
+        colorrandom2 = 'green'
+    elif colorrandom == 2:
+        colorrandom2 = 'lightblue'
+    elif colorrandom == 3:
+        colorrandom2 = 'purple'
+    elif colorrandom == 4:
+        colorrandom2 = 'brown'
+    else:
+        colorrandom2 = 'lightorange'
+    return colorrandom2
 
 
 def change(x, y):
@@ -52,9 +83,10 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
 
-    square(food.x, food.y, 9, 'green')
+        square(body.x, body.y, 9, color2)
+
+    square(food.x, food.y, 9, colorfood)
     update()
     ontimer(move, 100)
 
@@ -62,6 +94,8 @@ def move():
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
+color2 = color_change_snake()
+colorfood = color_change_food()
 listen()
 onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
