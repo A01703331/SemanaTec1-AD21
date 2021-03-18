@@ -81,7 +81,7 @@ def move():
     square(food.x, food.y, 9, colorfood)
     update()
     if (len(snake) >= 2 and len(snake) < 5):
-        ontimer(move, 85)
+        ontimer(move, 75)
     elif (len(snake) >= 5 and len(snake) < 7):
         ontimer(move, 50)
     elif (len(snake) >= 7 and len(snake) < 9):
