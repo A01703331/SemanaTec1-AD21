@@ -28,13 +28,13 @@ def square(start, end):
 
 def paint_circle(start, end):
     "Draw circle from start to end."
-    up()                               
-    goto(start.x,start.y)              
-    down()                             
-    begin_fill()                                      
-    radius = end.x - start.x           
-    circle(radius)                     
-    end_fill()  
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    radius = end.x - start.x
+    circle(radius)
+    end_fill()
 
 
 def rectangle(start, end):
@@ -65,7 +65,10 @@ def triangle(start, end):
     for count in range(3):
         forward(end.x - start.x)
         left(120)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 48b2e18f81731aed5cf2d989df9a7a7ae253ff26
     end_fill()
 
 
