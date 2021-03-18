@@ -29,13 +29,13 @@ def square(start, end):
 
 def paint_circle(start, end):
     "Draw circle from start to end."
-    up()                               
-    goto(start.x,start.y)              
-    down()                             
-    begin_fill()                                      
-    radius = end.x - start.x           
-    circle(radius)                     
-    end_fill()  
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    radius = end.x - start.x
+    circle(radius)
+    end_fill()
 
 
 def rectangle(start, end):
