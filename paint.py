@@ -1,6 +1,6 @@
 from turtle import up, goto, down, begin_fill, \
     forward, left, end_fill, setup, onscreenclick, \
-    listen, onkey, undo, done, color
+    listen, onkey, undo, done, color, circle
 from freegames import vector
 
 
@@ -27,9 +27,15 @@ def square(start, end):
     end_fill()
 
 
-def circle(start, end):
+def paint_circle(start, end):
     "Draw circle from start to end."
-    pass  # TODO
+    up()                               
+    goto(start.x,start.y)              
+    down()                             
+    begin_fill()                                      
+    radius = end.x - start.x           
+    circle(radius)                     
+    end_fill()  
 
 
 def rectangle(start, end):
@@ -97,7 +103,7 @@ onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
-onkey(lambda: store('shape', circle), 'c')
+onkey(lambda: store('shape', paint_circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()

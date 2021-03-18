@@ -32,3 +32,5 @@ git branch
 
 //Para crear una nueva rama:
 git checkout -b nombre_nueva_rama
+
+//py -m flake8 .\paint.py 
