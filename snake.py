@@ -90,6 +90,18 @@ def move():
     update()
     ontimer(move, 100)
 
+    if (len(snake) >= 2 and len(snake) < 5):
+        ontimer(move, 85)
+    elif (len(snake) >= 5 and len(snake) < 7):
+        ontimer(move, 70)
+    elif (len(snake) >= 7 and len(snake) < 9):
+        ontimer(move, 55)
+    elif (len(snake) >= 9 and len(snake) < 11):
+        ontimer(move, 40)
+    elif (len(snake) >= 11):
+        ontimer(move, 20)
+    else:
+        ontimer(move, 100)
 
 setup(420, 420, 370, 0)
 hideturtle()
