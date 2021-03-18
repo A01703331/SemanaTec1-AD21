@@ -65,7 +65,7 @@ def move():
     "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
-    
+
     if not inside(head) or head in snake:
         square(head.x, head.y, 9, 'red')
         update()
@@ -89,7 +89,7 @@ def move():
     square(food.x, food.y, 9, colorfood)
     update()
 
-    if (len(snake) >= 3 and len(snake) < 5):
+    if (len(snake) >= 2 and len(snake) < 5):
         ontimer(move, 85)
     elif (len(snake) >= 5 and len(snake) < 7):
         ontimer(move, 70)
