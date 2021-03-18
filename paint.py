@@ -20,7 +20,6 @@ def square(start, end):
     begin_fill()
 
     for count in range(4):
-        color("red")
         forward(end.x - start.x)
         left(90)
 
@@ -47,11 +46,9 @@ def rectangle(start, end):
     begin_fill()
 
     for count in range(2):
-        color("blue")
         forward(end.x - start.x)
         left(90)
-        forward(end.x - start.x)
-        forward(end.x - start.x)
+        forward(2*(end.x - start.x))
         left(90)
 
     end_fill()
@@ -65,11 +62,9 @@ def triangle(start, end):
     down()
     begin_fill()
 
-    for count in range(2):
-        color("yellow")
+    for count in range(3):
         forward(end.x - start.x)
-        left(60)
-
+        left(120)
     end_fill()
 
 
