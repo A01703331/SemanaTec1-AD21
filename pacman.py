@@ -130,12 +130,16 @@ def move():
 
     for point, course in ghosts:
         if valid(point + course):
-            if (state['score'] > 5 and state['score'] < 10):
+            if (state['score'] > 10 and state['score'] < 20):
                 point.move(course*1.1)
-            elif (state['score'] > 10 and state['score'] < 15):
+            elif (state['score'] >= 20 and state['score'] < 30):
                 point.move(course*1.2)
-            elif (state['score'] >= 15):
+            elif (state['score'] >= 30 and state['score'] < 40):
                 point.move(course*1.3)
+            elif (state['score'] >= 40 and state['score'] < 50):
+                point.move(course*1.4)
+            elif (state['score'] >= 50 and state['score'] < 60):
+                point.move(course*1.5)
             else:
                 point.move(course)
 
