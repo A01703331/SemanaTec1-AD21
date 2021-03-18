@@ -65,7 +65,10 @@ def triangle(start, end):
     for count in range(3):
         forward(end.x - start.x)
         left(120)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 48b2e18f81731aed5cf2d989df9a7a7ae253ff26
     end_fill()
 
 
