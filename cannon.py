@@ -10,12 +10,14 @@ Exercises
 """
 
 from random import randrange
-from turtle import *
+from turtle import clear, goto, dot, update, ontimer, \
+    setup, hideturtle, up, tracer, onscreenclick, done
 from freegames import vector
 
 ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
+
 
 def tap(x, y):
     "Respond to screen tap."
@@ -25,9 +27,11 @@ def tap(x, y):
         speed.x = (x + 200) / 25
         speed.y = (y + 200) / 25
 
+
 def inside(xy):
     "Return True if xy within screen."
     return -200 < xy.x < 200 and -200 < xy.y < 200
+
 
 def draw():
     "Draw ball and targets."
@@ -42,6 +46,7 @@ def draw():
         dot(6, 'red')
 
     update()
+
 
 def move():
     "Move ball and targets."
@@ -71,6 +76,7 @@ def move():
             return
 
     ontimer(move, 50)
+
 
 setup(420, 420, 370, 0)
 hideturtle()
