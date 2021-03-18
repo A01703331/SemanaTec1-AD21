@@ -1,14 +1,3 @@
-"""Snake, classic arcade game.
-
-Exercises
-
-1. How do you make the snake faster or slower?
-2. How can you make the snake go around the edges?
-3. How would you move the food?
-4. Change the snake to respond to arrow keys.
-
-"""
-
 from turtle import update, clear, ontimer, setup, hideturtle, \
     tracer, listen, onkey, done
 from random import randrange, randint
@@ -46,7 +35,7 @@ def color_change_food():
     elif colorrandom == 4:
         colorrandom2 = 'brown'
     else:
-        colorrandom2 = 'lightorange'
+        colorrandom2 = 'orange'
     return colorrandom2
 
 
@@ -60,6 +49,9 @@ def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
 
+def food_limit(food):
+    "Return True if food inside boundaries."
+    return -200 < food.x < 190 and -200 < food.y < 190
 
 def move():
     "Move snake forward one segment."
@@ -85,23 +77,31 @@ def move():
     for body in snake:
 
         square(body.x, body.y, 9, color2)
-
     square(food.x, food.y, 9, colorfood)
     update()
+    ontimer(move, 100)
 
-    if (len(snake) >= 2 and len(snake) < 5):
-        ontimer(move, 85)
-    elif (len(snake) >= 5 and len(snake) < 7):
-        ontimer(move, 70)
-    elif (len(snake) >= 7 and len(snake) < 9):
-        ontimer(move, 55)
-    elif (len(snake) >= 9 and len(snake) < 11):
-        ontimer(move, 40)
-    elif (len(snake) >= 11):
-        ontimer(move, 20)
-    else:
-        ontimer(move, 100)
-
+def move_food():
+    "Move food one segment at random "
+    food_direction = (randint(1, 4))
+    if food_direction == 1:
+        food.x = food.x + 10
+        if not food_limit(food):
+            food.x = food.x - 10
+    elif food_direction == 2:
+        food.y = food.y + 10
+        if not food_limit(food):
+            food.y = food.y - 10
+    elif food_direction == 3:
+        food.x = food.x - 10
+        if not food_limit(food):
+            food.x = food.x + 10
+    elif food_direction == 4:
+        food.y = food.y - 10
+        if not food_limit(food):
+            food.y = food.y + 10
+    update()
+    ontimer(move_food, 600)
 
 setup(420, 420, 370, 0)
 hideturtle()
@@ -114,4 +114,5 @@ onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
 move()
+move_food()
 done()
