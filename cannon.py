@@ -10,7 +10,8 @@ Exercises
 """
 
 from random import randrange
-from turtle import *
+from turtle import clear, goto, dot, update, ontimer, \
+    setup, hideturtle, up, tracer, onscreenclick, done
 from freegames import vector
 
 ball = vector(-200, -200)
@@ -51,7 +52,7 @@ def move():
         targets.append(target)
 
     for target in targets:
-        target.x -= 0.5
+        target.x -= 0.4
 
     if inside(ball):
         speed.y -= 0.35
@@ -66,11 +67,17 @@ def move():
 
     draw()
 
+    #for target in targets:
+     #   if  targets.append(target) == vector(-200, y):
+      #      goto(target.x, target.y)
+
     for target in targets:
         if not inside(target):
             return
+ 
 
-    ontimer(move, 50)
+    ontimer(move, 10)
+
 
 setup(420, 420, 370, 0)
 hideturtle()
