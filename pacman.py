@@ -1,6 +1,6 @@
 from random import choice
 from turtle import bgcolor, clear, up, goto, dot, update, \
-    ontimer, setup, hideturtle, tracer, listen, onkey, done
+    ontimer, setup, hideturtle, tracer, listen, onkey, done, Turtle
 from freegames import floor, vector
 
 state = {'score': 0}
