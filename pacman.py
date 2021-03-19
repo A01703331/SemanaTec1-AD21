@@ -1,15 +1,3 @@
-"""Pacman, classic arcade game.
-
-Exercises
-
-1. Change the board.
-2. Change the number of ghosts.
-3. Change where pacman starts.
-4. Make the ghosts faster/slower.
-5. Make the ghosts smarter.
-
-"""
-
 from random import choice
 from turtle import *
 from freegames import floor, vector
@@ -17,7 +5,7 @@ from freegames import floor, vector
 state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
-aim = vector(5, 0)
+aim = vector(0, 0)
 pacman = vector(-40, -80)
 ghosts = [
     [vector(-180, 160), vector(5, 0)],
@@ -130,29 +118,29 @@ def move():
 
     for point, course in ghosts:
         if valid(point + course):
-            if (state['score'] > 10 and state['score'] < 20):
-                point.move(course*1.1)
-            elif (state['score'] >= 20 and state['score'] < 30):
-                point.move(course*1.2)
-            elif (state['score'] >= 30 and state['score'] < 40):
-                point.move(course*1.3)
-            elif (state['score'] >= 40 and state['score'] < 50):
-                point.move(course*1.4)
-            elif (state['score'] >= 50 and state['score'] < 60):
-                point.move(course*1.5)
-            else:
-                point.move(course)
+            point.move(course)
 
         else:
-            options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
-            ]
-            plan = choice(options)
-            course.x = plan.x
-            course.y = plan.y
+            if (state['score'] > 10 and state['score'] < 70):
+                options = [
+                    vector(5, 0),
+                    vector(-5, 0),
+                    vector(0, 5),
+                    vector(0, -5),
+                ]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
+            elif (state['score'] >= 70):
+                options = [
+                    vector(10, 0),
+                    vector(-10, 0),
+                    vector(0, 10),
+                    vector(0, -10),
+                ]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
 
         up()
         goto(point.x + 10, point.y + 10)
@@ -163,8 +151,7 @@ def move():
     for point, course in ghosts:
         if abs(pacman - point) < 20:
             return
-
-    ontimer(move, 40)
+    ontimer(move,40)
 
 
 def change(x, y):
