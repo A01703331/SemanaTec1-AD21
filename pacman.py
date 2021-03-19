@@ -1,5 +1,6 @@
 from random import choice
-from turtle import *
+from turtle import bgcolor, clear, up, goto, dot, update, \
+    ontimer, setup, hideturtle, tracer, listen, onkey, done
 from freegames import floor, vector
 
 state = {'score': 0}
@@ -151,7 +152,7 @@ def move():
     for point, course in ghosts:
         if abs(pacman - point) < 20:
             return
-    ontimer(move,40)
+    ontimer(move, 40)
 
 
 def change(x, y):
