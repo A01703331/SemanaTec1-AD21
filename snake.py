@@ -1,11 +1,13 @@
 from turtle import update, clear, ontimer, setup, hideturtle, \
-    tracer, listen, onkey, done
+    tracer, listen, onkey, done, bgcolor, title, Turtle
 from random import randrange, randint
 from freegames import square, vector
+from tkinter import messagebox
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+writer = Turtle(visible=False)
 
 
 def color_change_snake():
@@ -13,7 +15,7 @@ def color_change_snake():
     if colorrandom == 1:
         colorrandom2 = 'yellow'
     elif colorrandom == 2:
-        colorrandom2 = 'black'
+        colorrandom2 = 'brown'
     elif colorrandom == 3:
         colorrandom2 = 'blue'
     elif colorrandom == 4:
@@ -35,7 +37,7 @@ def color_change_food():
     elif colorrandom == 4:
         colorrandom2 = 'brown'
     else:
-        colorrandom2 = 'orange'
+        colorrandom2 = 'gray'
     return colorrandom2
 
 
@@ -74,7 +76,6 @@ def move():
         snake.pop(0)
 
     clear()
-
     for body in snake:
 
         square(body.x, body.y, 9, color2)
@@ -92,6 +93,23 @@ def move():
         ontimer(move, 5)
     else:
         ontimer(move, 100)
+
+
+def move2():
+    writer.undo()
+    bgcolor("black")
+    hideturtle()
+    tracer(False)
+    writer.setposition(70, 190)
+    writer.color('white')
+    writer.write("Entrando a DARK MODE")
+    update()
+
+
+def move3():
+    writer.undo()
+    bgcolor("white")
+    update()
 
 
 def move_food():
@@ -118,6 +136,7 @@ def move_food():
 
 
 setup(420, 420, 370, 0)
+messagebox.showinfo("SNAKE GAME", "Para jugar en DARK MODE presiona space")
 hideturtle()
 tracer(False)
 color2 = color_change_snake()
@@ -127,6 +146,10 @@ onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
+onkey(move2, 'space')
+onkey(move3, 'R')
+update()
 move()
 move_food()
+title("Bienvenido a SNAKE GAME")
 done()
