@@ -1,12 +1,3 @@
-"""Pacman, classic arcade game.
-Exercises
-1. Change the board.
-2. Change the number of ghosts.
-3. Change where pacman starts.
-4. Make the ghosts faster/slower.
-5. Make the ghosts smarter.
-"""
-
 from random import choice
 from turtle import *
 from freegames import floor, vector
