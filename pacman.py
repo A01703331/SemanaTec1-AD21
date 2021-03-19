@@ -164,12 +164,8 @@ def move():
         if abs(pacman - point) < 20:
             return
 
-<<<<<<< HEAD
-    ontimer(move, 10)
-=======
     ontimer(move, 40)
 
->>>>>>> develop
 
 def change(x, y):
     "Change pacman aim if valid."
