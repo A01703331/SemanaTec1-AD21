@@ -71,9 +71,14 @@ def move():
 
     draw()
 
+    #for target in targets:
+     #   if  targets.append(target) == vector(-200, y):
+      #      goto(target.x, target.y)
+
     for target in targets:
         if not inside(target):
             return
+ 
 
     ontimer(move, 10)
 
