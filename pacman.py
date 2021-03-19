@@ -134,39 +134,51 @@ def main():
         for point, course in ghosts:
 
             if (state['score'] >= 0 and state['score'] < 70):
-                if ((abs(pacman.x) + abs(point.x)) < (abs(pacman.y) + abs(point.y)) and pacman.x > point.x):
-                    course = vector(5, 0)
-                elif (abs(pacman.x) + abs(point.x)) < (abs(pacman.y) + abs(point.y)) and pacman.x < point.x:
+                if ((abs(pacman.x) + abs(point.x)) < (abs(pacman.y) +
+                abs(point.y)) and pacman.x > point.x):
+                        course = vector(5, 0)
+                elif ((abs(pacman.x) + abs(point.x)) < (abs(pacman.y) +
+                abs(point.y)) and pacman.x < point.x):
                     course = vector(-5, 0)
-                elif (abs(pacman.x) + abs(point.x)) > (abs(pacman.y) + abs(point.y)) and pacman.y > point.y:
+                elif ((abs(pacman.x) + abs(point.x)) > (abs(pacman.y) +
+                abs(point.y)) and pacman.y > point.y):
                     course = vector(0, 5)
-                elif (abs(pacman.x) + abs(point.x)) > (abs(pacman.y) + abs(point.y)) and pacman.y < point.y:
+                elif ((abs(pacman.x) + abs(point.x)) > (abs(pacman.y) +
+                abs(point.y)) and pacman.y < point.y):
                     course = vector(0, -5)
-                elif (abs(pacman.x) + abs(point.x)) > (abs(pacman.y) + abs(point.y)) and pacman.x == point.x:
+                elif ((abs(pacman.x) + abs(point.x)) > (abs(pacman.y) +
+                abs(point.y)) and pacman.x == point.x):
                     if pacman.y > point.y:
                         course = vector(0, 5)
                     else:
                         course = vector(0, -5)
-                elif (abs(pacman.x) + abs(point.x)) < (abs(pacman.y) + abs(point.y)) and pacman.y == point.y:
+                elif ((abs(pacman.x) + abs(point.x)) < (abs(pacman.y) +
+                abs(point.y)) and pacman.y == point.y):
                     if pacman.y > point.y:
                         course = vector(5, 0)
                     else:
                         course = vector(-5, 0)
             elif (state['score'] >= 70):
-                if (abs(pacman.x) + abs(point.x)) < (abs(pacman.y) + abs(point.y)) and pacman.x > point.x:
+                if ((abs(pacman.x) + abs(point.x)) < (abs(pacman.y) +
+                abs(point.y)) and pacman.x > point.x):
                     course = vector(10, 0)
-                elif (abs(pacman.x) + abs(point.x)) < (abs(pacman.y) + abs(point.y)) and pacman.x < point.x:
+                elif ((abs(pacman.x) + abs(point.x)) < (abs(pacman.y) +
+                abs(point.y)) and pacman.x < point.x):
                     course = vector(-10, 0)
-                elif (abs(pacman.x) + abs(point.x)) > (abs(pacman.y) + abs(point.y)) and pacman.y > point.y:
+                elif ((abs(pacman.x) + abs(point.x)) > (abs(pacman.y) +
+                abs(point.y)) and pacman.y > point.y):
                     course = vector(0, 10)
-                elif (abs(pacman.x) + abs(point.x)) > (abs(pacman.y) + abs(point.y)) and pacman.y < point.y:
+                elif ((abs(pacman.x) + abs(point.x)) > (abs(pacman.y) +
+                abs(point.y)) and pacman.y < point.y):
                     course = vector(0, -10)
-                elif (abs(pacman.x) + abs(point.x)) > (abs(pacman.y) + abs(point.y)) and pacman.x == point.x:
+                elif ((abs(pacman.x) + abs(point.x)) > (abs(pacman.y) +
+                abs(point.y)) and pacman.x == point.x):
                     if pacman.y > point.y:
                         course = vector(0, 10)
                     else:
                         course = vector(0, -10)
-                elif (abs(pacman.x) + abs(point.x)) < (abs(pacman.y) + abs(point.y)) and pacman.y == point.y:
+                elif ((abs(pacman.x) + abs(point.x)) < (abs(pacman.y) +
+                abs(point.y)) and pacman.y == point.y):
                     if pacman.y > point.y:
                         course = vector(10, 0)
                     else:
