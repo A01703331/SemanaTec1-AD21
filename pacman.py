@@ -226,4 +226,5 @@ def main():
     done()
 
 
+title("Bienvenido a TACTI-PAC-MAN")
 main()

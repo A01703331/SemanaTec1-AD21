@@ -3,7 +3,7 @@ from turtle import update, clear, ontimer, setup, hideturtle, \
 from random import randrange, randint
 from freegames import square, vector
 from tkinter import messagebox
-messagebox.showinfo("SNAKE GAME", "Para jugar en DARK MODE presiona space")
+messagebox.showinfo("SNAKE GAME", "Modo oscuro -  Spacebar \nRegresar - r")
 
 
 def main():
@@ -96,11 +96,6 @@ def main():
     def move2():
         writer.undo()
         bgcolor("black")
-        hideturtle()
-        tracer(False)
-        writer.setposition(70, 190)
-        writer.color('white')
-        writer.write("Entrando a DARK MODE")
         update()
 
     def move3():
@@ -141,7 +136,7 @@ def main():
     onkey(lambda: change(0, 10), 'Up')
     onkey(lambda: change(0, -10), 'Down')
     onkey(move2, 'space')
-    onkey(move3, 'R')
+    onkey(move3, 'r')
     update()
     move()
     move_food()
