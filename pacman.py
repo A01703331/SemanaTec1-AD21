@@ -1,8 +1,8 @@
-from random import choice
 from turtle import bgcolor, clear, up, goto, dot, update, \
     ontimer, setup, hideturtle, tracer, listen, onkey, done, Turtle
 from freegames import floor, vector
 from tkinter import messagebox
+
 
 def main():
     state = {'score': 0}
@@ -41,7 +41,6 @@ def main():
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     ]
 
-
     def square(x, y):
         "Draw square using path at (x, y)."
         path.up()
@@ -52,7 +51,6 @@ def main():
         for count in range(4):
             path.forward(20)
             path.left(90)
-
         path.end_fill()
 
 
@@ -119,7 +117,7 @@ def main():
             x = (index % 20) * 20 - 200
             y = 180 - (index // 20) * 20
             square(x, y)
-        
+
         if state['score'] == 194:
             "Game over condition and win message"
             messagebox.showinfo("TACTI-PACMAN", "A winner is you!")
@@ -129,19 +127,19 @@ def main():
         goto(pacman.x + 10, pacman.y + 10)
         if lives > 0:
             dot(20, 'yellow')
-        elif lives == 0 and Game_Over == False:
+        elif (lives == 0 and Game_Over is False):
             "Game Over condition and lose message"
             Game_Over = True
-            messagebox.showinfo("TACTI-PACMAN", "A loser is you! \n Press Space to try again!")
+            messagebox.showinfo("TACTI-PACMAN", "Press Space to try again!")
             writer.undo()
             writer2.undo()
             main()
-            
+
 
         for point, course in ghosts:
-            
+
             if (state['score'] >= 0 and state['score'] < 70):
-                if (abs(pacman.x) + abs(point.x)) < (abs(pacman.y) + abs(point.y)) and pacman.x > point.x:
+                if ((abs(pacman.x) + abs(point.x)) < (abs(pacman.y) + abs(point.y)) and pacman.x > point.x):
                     course = vector(5, 0)
                 elif (abs(pacman.x) + abs(point.x)) < (abs(pacman.y) + abs(point.y)) and pacman.x < point.x:
                     course = vector(-5, 0)
@@ -193,8 +191,8 @@ def main():
                 if lives > 0:
                     pacman.x = -40
                     pacman.y = -80
-                
-        ontimer(move(lives),40)
+
+        ontimer(move(lives), 40)
 
     def change(x, y):
         "Change pacman and ghost aim if valid."
