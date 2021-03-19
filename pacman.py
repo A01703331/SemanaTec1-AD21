@@ -14,7 +14,7 @@ from freegames import floor, vector
 state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
-aim = vector(5, 0)
+aim = vector(0, 0)
 pacman = vector(-40, -80)
 ghosts = [
     [vector(-180, 160), vector(5, 0)],
@@ -160,17 +160,9 @@ def move():
     for point, course in ghosts:
         if abs(pacman - point) < 20:
             return
+    ontimer(move,40)
 
-<<<<<<< HEAD
-    ontimer(move, 10)
-=======
-    ontimer(move, 40)
 
-<<<<<<< HEAD
->>>>>>> develop
-
-=======
->>>>>>> develop
 def change(x, y):
     "Change pacman aim if valid."
     if valid(pacman + vector(x, y)):
